@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Page Liste Record</title>
+  <link rel='stylesheet' href='/stylesheets/tailwind-experimental.min.css'>
+  <script type="text/javascript" src="/javascripts/jquery-3.4.1.min.js"></script>
+
+</head>
+<body class="flex bg-gray-100 min-h-screen">
+  <aside class="hidden sm:flex sm:flex-col">
+    <a href="#" class="inline-flex items-center justify-center h-20 w-20 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
+      <span class="h-18 w-18  sm:ml-1 mr-2 bg-gray-100 rounded-full overflow-hidden">
+        <img src="/images/ffmpeg.png" alt="user profile photo" class="h-full w-full object-cover">    </span>
+    
+    </a>
+    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
+      <div class="inline-flex items-center justify-center h-20 w-20 border-t border-gray-700">
+          </div>
+    </div>
+  </aside>
+  <div class="flex-grow text-gray-800">
+    <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
+      <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
+        <span class="sr-only">Menu</span>
+          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+      </button>
+      <div class="flex flex-shrink-0 items-center ml-auto">
+        <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+          <span class="sr-only">User Menu</span>
+          <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+            <span class="font-semibold">IPCameraFFmpeg</span>
+            <span class="font-thin text-slate-500"><%= user %></span>
+          
+          </div>
+          <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+            <img src="/images/insc.png" alt="user profile photo" class="h-full w-full object-cover">
+          </span>
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" class="hidden sm:block h-6 w-6 text-gray-300">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg> 
+        </button>
+        <div class="flex border-l pl-3 ml-3 space-x-1">
+          <button class="flex-1 relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+            <span class="sr-only">Notifications</span>
+            <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+            <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </button>
+          <form action="/getmenu" method="post" class="flex-1"> <input type="text" name="user" value="<%= user %>" hidden>
+            <button class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+            <span class="sr-only">Log out</span>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+           </svg>
+          </button></form> 
+        </div>
+      </div>
+    </header>
+    <main class="p-2 sm:p-2 space-y-6">
+        <form action="/GetlisteRECORD" method="post" class="inline-flex  items-center justify-center h-fit w-fit border border-spacing-1 p-1 bg-white rounded-md mr-2">
+            <input type="text" name="user" value="<%= user %>" hidden>
+            <input type="text" name="left" value="oui" hidden>
+            <input type="text" value="<%=record[0].link %>" name="filelink" hidden />
+          <button type="submit" class="rounded-full shadow-xl w-fit h-fit bg-yellow-50 hover:bg-yellow-200 border border-yellow-200"><svg class="svg-icon" style="width: 3em;height: 3em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M506.29487126 984.94440496c-256.90127577 0-465.89300251-209.04173162-465.89300263-465.94300674 0-256.90127577 208.99172691-465.89300251 465.89300263-465.893003s465.94300667 209.04173162 465.94300694 465.893003c0 256.90127577-208.99172691 465.94300667-465.94300694 465.94300674z m0-903.63038006c-241.29817898 0-437.58736467 196.33919014-437.58736448 437.63736905s196.33919014 437.63736883 437.58736448 437.63734808c241.34818298 0 437.58736467-196.33919014 437.58734414-437.63734808s-196.23918158-437.63736883-437.58734414-437.63736905z"  /><path d="M522.89817666 317.41116453h48.85975206l-214.19274536 205.84108887 214.14274137 205.84108885h-48.80974807l-214.14274187-205.84108885z"  /></svg></button></form>
+      <section class="grid md:grid-cols-2 xl:grid-cols-9 gap-2 h-fit">
+        <%  for(var i in record) {%>
+            <form action="/GetlisteRECORD" method="post" class="inline-flex  items-center justify-center h-36 w-36 border border-spacing-1 p-4 bg-white rounded-md mr-2">
+              <input type="text" name="user" value="<%= user %>" hidden>
+              <input type="text" name="left" value="non" hidden>
+              <input type="text" value="<%= record[i].link %>" name="filelink" hidden /><button type="submit">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-28" viewBox="0 0 64 64"><path fill="#fdbf00" d="m18.57 15.51 7.86 7a2 2 0 0 0 1.33.51H56v34.9A2.93 2.93 0 0 1 53.26 61H5.74A2.93 2.93 0 0 1 3 57.92V18a2.85 2.85 0 0 1 2.68-3h11.56a2 2 0 0 1 1.33.51Z"/><path fill="#d7e6ef" d="M49 57H7V3h42z"/><path fill="#fdbf00" d="M45 23h16v-6a2 2 0 0 0-2-2h-6Z"/><path fill="#f7fcff" d="M14 9h42v14H14z"/><path fill="#ffda2d" d="m25.69 15.51 7.42 7a1.8 1.8 0 0 0 1.25.51H61v34.9A2.87 2.87 0 0 1 58.41 61H13.59A2.87 2.87 0 0 1 11 57.92V18a2.79 2.79 0 0 1 2.53-3h10.9a1.82 1.82 0 0 1 1.26.51Z"/><circle cx="36" cy="42" r="13" fill="#f7fcff"/><path fill="#332b38" d="m36 42 8 4.62v-9.24L36 42z"/><rect width="11" height="8" x="28" y="38" fill="#44394a" rx="1"/><path fill="#d7e6ef" d="M52 13H32a1 1 0 0 0 0 2h20a1 1 0 0 0 0-2zm0 4H37a1 1 0 0 0 0 2h15a1 1 0 0 0 0-2z"/></svg> 
+                <span class="text-sm font-semibold text-blue-400 flex-col"><%=record[i].record %></span>
+           </button></form>
+       
+       <% } %>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

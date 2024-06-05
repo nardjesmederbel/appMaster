@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Page Video Record</title>
+  <link rel='stylesheet' href='/stylesheets/tailwind-experimental.min.css'>
+  <script type="text/javascript" src="/javascripts/jquery-3.4.1.min.js"></script>
+
+</head>
+<body class="flex bg-gray-100 min-h-screen">
+  <aside class="hidden sm:flex sm:flex-col">
+    <a href="#" class="inline-flex items-center justify-center h-20 w-20 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
+      <span class="h-18 w-18  sm:ml-1 mr-2 bg-gray-100 rounded-full overflow-hidden">
+        <img src="/images/ffmpeg.png" alt="user profile photo" class="h-full w-full object-cover">    </span>
+    
+    </a>
+    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
+      <div class="inline-flex items-center justify-center h-20 w-20 border-t border-gray-700">
+          </div>
+    </div>
+  </aside>
+  <div class="flex-grow text-gray-800">
+    <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
+      <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
+        <span class="sr-only">Menu</span>
+          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+      </button>
+      <div class="flex flex-shrink-0 items-center ml-auto">
+        <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+          <span class="sr-only">User Menu</span>
+          <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+            <span class="font-semibold">IPCameraFFmpeg</span>
+            <span class="font-thin text-slate-500"><%= user %></span>
+          
+          </div>
+          <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+            <img src="/images/insc.png" alt="user profile photo" class="h-full w-full object-cover">
+          </span>
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" class="hidden sm:block h-6 w-6 text-gray-300">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg> 
+        </button>
+        <div class="flex border-l pl-3 ml-3 space-x-1">
+          <button class="flex-1 relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+            <span class="sr-only">Notifications</span>
+            <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+            <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </button>
+          <form action="/getmenu" method="post" class="flex-1"> <input type="text" name="user" value="<%= user %>" hidden>
+            <button class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
+            <span class="sr-only">Log out</span>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+           </svg>
+          </button></form> 
+        </div>
+      </div>
+    </header>
+    <main class="p-2 sm:p-2 space-y-6">
+      <form action="/GetlisteRECORD" method="post" class="inline-flex  items-center justify-center h-fit w-fit border border-spacing-1 p-1 bg-white rounded-md mr-2">
+        <input type="text" name="user" value="<%= user %>" hidden>
+        <input type="text" name="left" value="oui" hidden>
+        <input type="text" value="<%=record[0].link %>" name="filelink" hidden />
+      <button type="submit" class="rounded-full shadow-xl w-fit h-fit bg-green-50 hover:bg-green-200 border border-green-200"><svg class="svg-icon" style="width: 3em;height: 3em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M506.29487126 984.94440496c-256.90127577 0-465.89300251-209.04173162-465.89300263-465.94300674 0-256.90127577 208.99172691-465.89300251 465.89300263-465.893003s465.94300667 209.04173162 465.94300694 465.893003c0 256.90127577-208.99172691 465.94300667-465.94300694 465.94300674z m0-903.63038006c-241.29817898 0-437.58736467 196.33919014-437.58736448 437.63736905s196.33919014 437.63736883 437.58736448 437.63734808c241.34818298 0 437.58736467-196.33919014 437.58734414-437.63734808s-196.23918158-437.63736883-437.58734414-437.63736905z"  /><path d="M522.89817666 317.41116453h48.85975206l-214.19274536 205.84108887 214.14274137 205.84108885h-48.80974807l-214.14274187-205.84108885z"  /></svg></button></form>
+      <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-2 h-fit">
+        <%  for(var i in record) {%>
+            <div class="grid grid-rows-3 grid-flow-col gap-1 w-4/6 h-52 ml">
+              <video  data-dashjs-player=""  src="<%= record[i].video %>" controls="true" style="width:fit-content;height:fit-content;border-radius: 8px 8px;"></video>
+              <source src="/output/Dolphin_Boy.mp4" type="video/mp4"  >
+              </video>
+              <div  class="-mt-1">
+                <a  id="dowloadurl-<%=i %>" onclick="downloadlink('<%= record[i].video %>','<%= i %>');"    class="font-extralight text-orange-500 py-0 px-2 mb-1 border border-orange-400  hover:bg-orange-100 rounded-md flex h-6 w-28"><img  class="flex-1 h5 w-5 mr-1"  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTM1LjksMjMwVjExMi44SDEyOFYyMzBsLTI4LjMtMzFsLTUuNiw2LjFsMzcuOSw0MS4zbDM3LjgtNDEuM2wtNS42LTYuMUwxMzUuOSwyMzB6Ii8+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTIwMi44LDc4LjJjMC0wLjcsMC4xLTEuMywwLjEtMmMwLTM2LjgtMjcuMy02Ni42LTYxLTY2LjZjLTI0LjMsMC00NS4yLDE1LjUtNTUsMzhjLTQuMi0yLjMtOS0zLjctMTQuMS0zLjdjLTE1LjYsMC0yOC41LDEyLjQtMzEsMjguNkMyMy40LDc5LjQsMTAsOTguNiwxMCwxMjEuMmMwLDI4LjUsMjEuMSw1MS42LDQ3LjIsNTEuNmg0Ny4ydi04LjZINTcuMmMtMjEuNywwLTM5LjMtMTkuMy0zOS4zLTQzYzAtMTguNCwxMC43LTM0LjcsMjYuNi00MC42bDQuNC0xLjdsMC44LTVjMS45LTEyLjQsMTEuNy0yMS41LDIzLjItMjEuNWMzLjcsMCw3LjIsMC45LDEwLjUsMi44bDcuMiwzLjlsMy41LTcuOWM4LjgtMjAuMSwyNy42LTMzLjEsNDcuOS0zMy4xYzI5LjMsMCw1My4xLDI2LDUzLjEsNThjMCwwLjIsMCwwLjQsMCwwLjVjMCwwLjQsMCwwLjksMCwxLjNsLTAuMiw4LjhsOCwwYzE5LjUsMCwzNS4zLDE3LjQsMzUuMywzOC43YzAsMjEuMi0xNS44LDM4LjYtMzUuMiwzOC43aC0xLjdoLTQxLjd2OC42aDQzLjVsMCwwYzIzLjgtMC4xLDQzLjEtMjEuMiw0My4xLTQ3LjJDMjQ2LDk5LjUsMjI2LjcsNzguMywyMDIuOCw3OC4yeiIvPjwvZz48L2c+DQo8L3N2Zz4=" width="32" height="32">
+                   <span class="flex-1 mt-0">Download</span> </a></div>
+           
+              </div>
+       
+       <% } %>
+      </section>
+    </main>
+  </div>
+</body>
+<script>
+  function downloadlink(el,is){
+    const link="/downloadVideo/public"+ el.replaceAll("/","@");
+  console.log(link);
+  document.getElementById(`dowloadurl-${is}`).href=link;
+  }
+</script>
+</html>
