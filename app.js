@@ -392,7 +392,7 @@ else{
       format=file.split('.')[1];
       json.push({"record":file.split('.')[0],"video":`${filelinks.replace("public","")}${file}`,"link":`${filelinks.replaceAll("//","/")}${file.split('.')[0]}/`,"back":`${filelinks}/`});
     });
-if(format=="mp4")   res.render('pageVideoRecord',{record:json,user});
+if(format=="mp4" || format=="h265")   res.render('pageVideoRecord',{record:json,user});
 else res.render('PageListRecord',{record:json,user});
   });
 }
