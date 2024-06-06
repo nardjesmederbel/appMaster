@@ -2,99 +2,313 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Lecteur MP4</title>
+  <title>MP4-720p-200k</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body class="flex bg-gray-100 min-h-screen">
-  <aside class="hidden sm:flex sm:flex-col">
+  <aside  class="hidden sm:flex sm:flex-col">
     <a href="#" class="inline-flex items-center justify-self-start h-20 w-48 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
       <span class="h-18 w-18  sm:ml-1 mr-2 bg-gray-100 rounded-full overflow-hidden">
         <img src="/images/ffmpeg.png" alt="user profile photo" class="h-20 w-20   object-cover">
     </a>
-    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800 ">
-      <div style="height: fit-content;" class="flex flex-col center justify-center w-48 border-t border-gray-700 pt-0 pl-1">
-        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">MPEG-DASH ARB</h5>
+    <div id="Main" class="transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-48 bg-gray-800 flex-col">
+      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500 w-full  px-2 ml-0 mt-0 mb-1 py-1">MPEG-DASH ARB </h4>
+      <button onclick="showMenu0(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+        <p class="text-sm leading-5">Dash Auto Scal </p>
+        <svg id="icon0" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div id="menu0" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
         <form action="/scaleAuto" method="post"  class="ml-1 mt-1  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+          <button   style="width: 170px;" type="submit" class="py-1 bg-orange-400 border border-orange-400 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
             MPD: Auto Scale 
            </button>
         </form>
-        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Main scale Pucture</h5>
-        <form action="/scale2sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 2 Sec
-           </button>
-        </form>
-        <form action="/scale4sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 4 Sec
-           </button>
-        </form>
-        <form action="/scale6sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 6 Sec
-           </button>
-        </form>
-        <form action="/scale8sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 8 Sec
-           </button>
-        </form>
-        <form action="/scale10sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 10 Sec
-           </button>
-        </form>
-        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Main 10 scale Pucture</h5>
-        <form action="/scale104sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 4 Sec
-           </button>
-        </form>
-        <form action="/scale106sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 8 Sec
-           </button>
-        </form>
-        <form action="/scale108sec" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            MPD: 10 Sec
-           </button>
-        </form>
-        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Lecteur MP4</h5>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl0" onclick="downloadlink('autoscale0','0')" style="width: 170px;"  class="flex py-1 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white bg-green-400">
+            <img id=""  class="flex ml-1 w-6 h-6 mr-2"   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">Auto:4Sec</span>  
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl1" onclick="downloadlink('autoscale1','1')" style="width: 170px;"  class="flex py-1 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white bg-green-400">
+            <img id=""  class="flex ml-1 w-6 h-6 mr-2"   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">Auto:6Sec</span>  
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl2" onclick="downloadlink('autoscale2','2')" style="width: 170px;"  class="flex py-1 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white bg-green-400">
+            <img id=""  class="flex ml-1 w-6 h-6 mr-2"   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">Auto:8Sec</span>  
+           </a>
+        </div>
+        </div>
+    <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500  w-full  px-2 ml-0 mt-1 mb-3 py-1">Dash Profile Main</h4>
+      <div class="flex flex-col justify-start items-center px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu1(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+          <p class="text-sm leading-5">Dash Profile Simple  </p>
+          <svg id="icon1" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div id="menu1" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl3" onclick="downloadlink('4sec3','3')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl4" onclick="downloadlink('6sec4','4')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl5" onclick="downloadlink('8sec5','5')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+        </div>
+        <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+    
+        <button onclick="showMenu2(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5">Dash Profile Full  </p>
+            <svg id="icon2" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu2" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl6" onclick="downloadlink('4sec6','6')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl7" onclick="downloadlink('6sec7','7')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl8" onclick="downloadlink('8sec8','8')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+    
+      </div>
+      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500  w-full px-2 ml-0 mt-3 mb-3 py-1">Codec Profile Main10</h4>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu3(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5">Dash Profile live  </p>
+            <svg id="icon3" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu3" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl9" onclick="downloadlink('4sec9','9')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl10" onclick="downloadlink('6sec10','10')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl11" onclick="downloadlink('8sec11','11')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu4(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5 ">Dash Profile Simple  </p>
+            <svg id="icon4" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu4" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl12" onclick="downloadlink('4sec12','12')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl13" onclick="downloadlink('6sec13','13')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl14" onclick="downloadlink('8sec14','14')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu5(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5 ">Dash Profile Full  </p>
+            <svg id="icon5" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu5" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl15" onclick="downloadlink('4sec15','15')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl16" onclick="downloadlink('6sec16','16')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full  : 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl17" onclick="downloadlink('8sec17','17')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+      </div>
+      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500 w-full px-2 ml-0 mt-3 mb-3 py-1">Codec Profile Main12</h4>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu6(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5">Dash Profile live  </p>
+            <svg id="icon6" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu6" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl18" onclick="downloadlink('4sec18','18')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl19" onclick="downloadlink('6sec19','19')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl20" onclick="downloadlink('8sec20','20')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile live: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu7(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5 ">Dash Profile Simple  </p>
+            <svg id="icon7" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu7" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl21" onclick="downloadlink('4sec21','21')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl22" onclick="downloadlink('6sec22','22')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl23" onclick="downloadlink('8sec23','23')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+        <button onclick="showMenu8(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
+            <p class="text-sm leading-5 ">Dash Profile Full  </p>
+            <svg id="icon8" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        <div id="menu8" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl24" onclick="downloadlink('4sec24','24')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Simple: 4Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl25" onclick="downloadlink('6sec25','25')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full  : 6Sec</span>   
+             </a>
+          </div>
+          <div   class="ml-0 mt-1  flex-col bg">
+            <a href="" id="dowloadurl26" onclick="downloadlink('8sec26','26')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+              <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+             <span class="text-orange-200 flex font-thin text-sm">Profile Full: 8Sec</span>   
+             </a>
+          </div>
+        </div>
+    </div>
+       <button onclick="showMenu9(true)" class="focus:outline-none bg-blue-500   text-left  text-white flex justify-between items-center w-full py-1 space-x-1 px-2">
+        <p class="text-sm leading-5 animate-pulse ">HEVC MP4 </p>
+        <svg id="icon9" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+        <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
+         <div id="menu9" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+          <div   class="ml-0 mt-1  flex-col bg">
         <form action="/MP4600" method="post"  class="ml-1 mt-1  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
             MP4: 600P
            </button>
         </form>
         <form action="/MP4720" method="post"  class="ml-1 mt-1  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-orange-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+          <button   style="width: 170px;" type="submit" class="py-1 bg-orange-400 border border-orange-400 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
             MP4: 720P
            </button>
         </form>
         <form action="/MP41080" method="post"  class="ml-1 mt-1  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
             MP4: 1080P
            </button>
         </form>
-    </div>
+</div>
+      </div>
     </div>
   </aside>
-  <div class="flex-grow text-gray-800">
+ <div class="flex-grow text-gray-800">
     <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
-      <h3 class="font-thin text-gray-700" id="textitle">Université Badji Mokhtar-Annaba Departement Electronique</h3>
+      <h3 class="font-thin text-gray-700" id="textitle"  ondblclick="clears();"></h3>
       <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
         <span class="sr-only">Menu</span>
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -135,20 +349,18 @@
       </div>
     </header>
     <main class="flex-1 items-left  ml-40 mt-4 px-1 w-full h-fit">
-        <h1 class="text-gray-500 text-balance mb-2">Live tream MPD Dash:ABR Roles</h1>
+        <h1 class="text-gray-500 text-balance mb-2">Video MP4:600P</h1>
         <div class="h-full max-h-80">
          <div class="grid grid-rows-3 grid-flow-col gap-1 w-4/6">
             <div id="scale256" style="height: 80vh;" class="row-start-1 row-span-4 bg-gray-200 shadow-md rounded-md h-90 px-1 py-2">
-            <!-- <video  data-dashjs-player="" autoplay src="https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video> -->
-            <video id="video" 
-            width='480px' height='360px' controls autoplay
-            src="/output/HEVC/playList.m3u8" style="width:100%;height:100%;border-radius: 8px 8px;">
-     </video>
+                <video  data-dashjs-player="" autoplay src="/output/MP4/720p-600k.mp4" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video>
             </div>
             </div>
     </main>
     </div>
    </body>
+      <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script> 
+        <script src="/javascripts/dash.all.min.js"></script>
    <style>
 #textitle {
   position: relative;
@@ -165,21 +377,160 @@
 }
 
    </style>
-      <script src="/javascripts/hls.min.js"></script>
- 
- 
-      <!-- <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script> -->
-  <!-- <script src="/javascripts/dash.all.min.js"></script> -->
 <script>
-            if (Hls.isSupported()) {
-              var video = document.getElementById('video');
-              var hls = new Hls();
-              hls.loadSource(video.src);
-              hls.attachMedia(video);
-            }else{
-                alert("Cannot stream HLS, use another video source");
-            }
-            </script>
+  function downloadlink(el,id){
+   var source="";
+   switch(el){
+     case "autoscale0": source="Dash_main_live/main_live4sec/main_live4sec.mpd";break;
+      case "autoscale1": source="Dash_main_live/main_live6sec/main_live6sec.mpd";break;
+      case "autoscale2": source="Dash_main_live/main_live8sec/main_live8sec.mpd";break;
+     
+      case "4sec3": source="Dash_main_simple/main_simplsece4sec/main_simplsece4sec.mpd";break;
+      case "6sec4": source="Dash_main_simple/main_simplsece6sec/main_simplsece6sec.mpd";break;
+      case "8sec5": source="Dash_main_simple/main_simplsece8sec/main_simplsece8sec.mpd";break;
+     
+      case "4sec6": source="Dash_main_full/main_full4sec/main_full4sec.mpd";break;
+      case "6sec7": source="Dash_main_full/main_full6sec/main_full6sec.mpd";break;
+      case "8sec8": source="Dash_main_full/main_full8sec/main_full8sec.mpd";break;
+     
+      
+      case "4sec9": source="Dash_main10_live/main10_live4sec/main10_live4sec.mpd";break;
+      case "6sec10": source="Dash_main10_live/main10_live6sec/main10_live6sec.mpd";break;
+      case "8sec11": source="Dash_main10_live/main10_live8sec/main10_live8sec.mpd";break;
+   
+      case "4sec12": source="Dash_main10_simple/main10_simple4sec/main10_simple4sec.mpd";break;
+      case "6sec13": source="Dash_main10_simple/main10_simple6sec/main10_simple6sec.mpd";break;
+      case "8sec14": source="Dash_main10_simple/main10_simple8sec/main10_simple8sec.mpd";break;
+     
+      case "4sec15": source="Dash_main10_full/main10_full4sec/main10_full4sec.mpd";break;
+      case "6sec16": source="Dash_main10_full/main10_full6sec/main10_full6sec.mpd";break;
+      case "8sec17": source="Dash_main10_full/main10_full8sec/main10_full8sec.mpd";break;
+     
+      case "4sec18": source="Dash_main12_live/main12_live4sec/main12_live4sec.mpd";break;
+      case "6sec19": source="Dash_main12_live/main12_live6sec/main12_live6sec.mpd";break;
+      case "8sec20": source="Dash_main12_live/main12_live8sec/main12_live8sec.mpd";break;
+     
+      case "4sec21": source="Dash_main12_simple/main12_simple4sec/main12_simple4sec.mpd";break;
+      case "6sec22": source="Dash_main12_simple/main12_simple6sec/main12_simple6sec.mpd";break;
+      case "8sec23": source="Dash_main12_simple/main12_simple8sec/main12_simple8sec.mpd";break;
+     
+      case "4sec24": source="Dash_main12_full/main12_full4sec/main12_full4sec.mpd";break;
+      case "6sec25": source="Dash_main12_full/main12_full6sec/main12_full6sec.mpd";break;
+      case "8sec26": source="Dash_main12_full/main12_full8sec/main12_full8sec.mpd";break;
+      }
+   const link="/downloadVideo/public@output@"+ source.replaceAll("/","@");
+   console.log(link);
+   const link2=`https://raw.githubusercontent.com/ibrahi2023/appFMPEG/main/public/output/${source}`;
+   document.getElementById(`dowloadurl${id}`).href=link;
+   document.getElementById("textitle").innerHTML=`<span class="text-orange-500">Url:</span><span >${link2}</span>`
+   }
+  function clears(){
+   document.getElementById("textitle").innerHTML=``
+  }
+let icon0 = document.getElementById("icon0");
+let menu0= document.getElementById("menu0");
+let icon1 = document.getElementById("icon1");
+let menu1 = document.getElementById("menu1");
+let icon2 = document.getElementById("icon2");
+let menu2 = document.getElementById("menu2");
+let icon3 = document.getElementById("icon3");
+let menu3 = document.getElementById("menu3");
+let icon4 = document.getElementById("icon4");
+let menu4 = document.getElementById("menu4");
+let icon5 = document.getElementById("icon5");
+let menu5 = document.getElementById("menu5");
+let icon6 = document.getElementById("icon6");
+let menu6 = document.getElementById("menu6");
+let icon7 = document.getElementById("icon7");
+let menu7 = document.getElementById("menu7");
+let icon8 = document.getElementById("icon8");
+let menu8 = document.getElementById("menu8");
+let icon9 = document.getElementById("icon9");
+let menu9 = document.getElementById("menu9");
+
+const showMenu0 = (flag) => {
+ if (flag) {
+   icon0.classList.toggle("rotate-180");
+   menu0.classList.toggle("hidden");
+ }
+};
+const showMenu1 = (flag) => {
+ if (flag) {
+   icon1.classList.toggle("rotate-180");
+   menu1.classList.toggle("hidden");
+   
+ }
+};
+const showMenu2 = (flag) => {
+ if (flag) {
+   icon2.classList.toggle("rotate-180");
+   menu2.classList.toggle("hidden");
+ }
+};
+const showMenu3 = (flag) => {
+ if (flag) {
+   icon3.classList.toggle("rotate-180");
+   menu3.classList.toggle("hidden");
+ }
+};
+const showMenu4 = (flag) => {
+ if (flag) {
+   icon4.classList.toggle("rotate-180");
+   menu4.classList.toggle("hidden");
+ }
+};
+const showMenu5 = (flag) => {
+ if (flag) {
+   icon5.classList.toggle("rotate-180");
+   menu5.classList.toggle("hidden");
+ }
+};
+const showMenu6 = (flag) => {
+ if (flag) {
+   icon6.classList.toggle("rotate-180");
+   menu6.classList.toggle("hidden");
+ }
+};const showMenu7 = (flag) => {
+ if (flag) {
+   icon7.classList.toggle("rotate-180");
+   menu7.classList.toggle("hidden");
+ }
+};const showMenu8 = (flag) => {
+ if (flag) {
+   icon8.classList.toggle("rotate-180");
+   menu8.classList.toggle("hidden");
+ }
+};
+const showMenu9 = (flag) => {
+ if (flag) {
+   icon9.classList.toggle("rotate-180");
+   menu9.classList.toggle("hidden");
+ }
+};
+
+menu0.classList.toggle("hidden");
+menu1.classList.toggle("hidden");
+menu2.classList.toggle("hidden");
+menu3.classList.toggle("hidden");
+menu4.classList.toggle("hidden");
+menu5.classList.toggle("hidden");
+menu6.classList.toggle("hidden");
+menu7.classList.toggle("hidden");
+menu8.classList.toggle("hidden");
+let Main = document.getElementById("Main");
+let open = document.getElementById("open");
+let close = document.getElementById("close");
+
+const showNav = (flag) => {
+ if (flag) {
+   Main.classList.toggle("-translate-x-full");
+   Main.classList.toggle("translate-x-0");
+   open.classList.toggle("hidden");
+   close.classList.toggle("hidden");
+ }
+};
+
+ </script>
 </html>
 
 
