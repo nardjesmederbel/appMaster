@@ -187,7 +187,7 @@
           const formData=new FormData(e.target);
           const videoFile = document.getElementById("videoFile").files.length;
           const NomVideoOutput = document.getElementById("NomVideoOutput").value;
-          console.log(videoFile);
+          console.log(formData);
           if(videoFile== 0) { document.getElementById("message").innerHTML="Select File";
           return;}
           if(NomVideoOutput== "" ) { document.getElementById("message").innerHTML="Case Nom De Sortie  Vide";
