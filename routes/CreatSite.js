@@ -153,7 +153,11 @@ scalAuto:(req,res)=>{
     MP41080P:(req,res)=>{
       const user=req.body.user;
       res.render("scalMPD/MP4/MP41080P",{message:"",user:user});
-    }
+    },
+    MP415000P:(req,res)=>{
+      const user=req.body.user;
+      res.render("scalMPD/MP4/MP415000P",{message:"",user:user});
+    },
     }
    const  findByCamera = (ipcamera, cb) => {
     return  db.get(`SELECT * FROM camera WHERE ipcamera = ?`,[ipcamera], (err, row) => {

@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 const{login,singin,inscription,Convertevideo,invitConvertevideo,FFmpegconvert,registre,addUser,editUser,dellUser, GetDellUser,GetvalidUser,GetEditUser,GetAddUser,GPageUser,Getalluser,ValidUser,PageUser}=require('./routes/player');
 const{addSite,EditeSite,DelSite,GetaddSite,GetEditSite,GetDellSite,GetallSite,PageSite,GPageSite,scale2sec,scale4sec,scale6sec,scale8sec,scale10sec,scale104sec
-,scale106sec,scale108sec,MP41080P,MP4720P,MP4600P,scalAuto}=require("./routes/CreatSite");
+,scale106sec,scale108sec,MP41080P,MP4720P,MP4600P,MP415000P,scalAuto}=require("./routes/CreatSite");
 const cors = require("cors");
 const rtspStream = require('node-rtsp-stream');
 const Recorder = require('node-rtsp-recorder').Recorder;
@@ -161,6 +161,8 @@ app.post('/scale108sec',scale108sec);
 app.post('/MP41080',MP41080P);
 app.post('/MP4600',MP4600P);
 app.post('/MP4720',MP4720P);
+app.post('/MP415000',MP415000P);
+
 app.post('/scaleAuto',scalAuto);
 app.post('/GetDellSite',GetDellSite);
 app.get('/GetallSite',GetallSite);
